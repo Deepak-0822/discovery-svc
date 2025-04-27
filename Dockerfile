@@ -1,14 +1,14 @@
-# Start from an OpenJDK base image
+# Use official OpenJDK image
 FROM openjdk:21-jdk-slim
- 
-# Set the working directory
+
+# Set working directory inside container
 WORKDIR /app
- 
-# Copy the Spring Boot jar file into the container
+
+# Copy built jar file into container
 COPY target/discovery-server-0.0.1-SNAPSHOT.jar app.jar
- 
-# Expose the Eureka server port
+
+# Expose Eureka server port
 EXPOSE 8761
- 
-# Run the jar file
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
+# Run the JAR
+ENTRYPOINT ["java", "-jar", "app.jar"]
